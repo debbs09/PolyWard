@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+    --red: #ff3e3e;
+    --yellow: #ffee00;
+    --blue: #0077ff;
+    --bg: #02050a;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Orbitron', sans-serif; }
+
+body { background: var(--bg); color: white; height: 100vh; overflow: hidden; }
+
+/* FONDO MAESTRO */
+.background-master {
+    position: fixed;
+    width: 100%; height: 100%;
+    z-index: -1;
+    perspective: 1000px;
+}
+
+.grid-floor {
+    position: absolute;
+    bottom: -25%; left: -50%; width: 200%; height: 100%;
+    background-image: linear-gradient(var(--blue) 1px, transparent 1px), 
+                      linear-gradient(90deg, var(--blue) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: rotateX(75deg);
+    opacity: 0.1;
+}
+
+/* CONTENEDOR DE FIGURAS QUE GIRAN */
+.shapes-container {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform-style: preserve-3d;
+    animation: rotateUniverse 40s linear infinite;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 10px currentColor);
+    /* Distribución circular */
+    transform: rotate(calc(var(--i) * 45deg)) translate(300px) rotate(0deg);
+    animation: floatShape var(--t) linear infinite;
+}
+
+/* Tipos de figuras */
+.square { width: 40px; height: 40px; background: var(--red); border: 2px solid white; }
+
+.circle { width: 45px; height: 45px; background: var(--blue); border-radius: 50%; border: 2px solid white; }
+
+.triangle {
+    width: 0; height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 45px solid var(--yellow);
+}
+
+/* ANIMACIONES */
+@keyframes rotateUniverse {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes floatShape {
+    0% { transform: rotate(calc(var(--i) * 45deg)) translate(250px) scale(1); opacity: 0; }
+    50% { opacity: 0.8; }
+    100% { transform: rotate(calc(var(--i) * 45deg)) translate(600px) scale(1.5) rotate(360deg); opacity: 0; }
+}
+
+/* ESTILO DE LA UI */
+header { display: flex; justify-content: space-between; padding: 30px 8%; }
+.logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 4px; }
+.logo span { color: var(--blue); }
+.hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+h1 { font-size: 5rem; letter-spacing: 15px; }
+h1 span { color: transparent; -webkit-text-stroke: 1.5px white; }
+p { color: var(--yellow); letter-spacing: 8px; margin: 20px 0 40px; }
+
+.play-btn {
+    padding: 15px 40px; background: white; color: black; font-weight: 900; border: none;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); cursor: pointer; transition: 0.3s;
+}
+.play-btn:hover { background: var(--red); color: white; transform: scale(1.1); box-shadow: 0 0 30px var(--red); }
+
+.center-glow {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,119,255,0.2), transparent);
+    filter: blur(50px);
+}
