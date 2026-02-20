@@ -1,9 +1,9 @@
-name: CI-CD pipeline   PolyWard
+name: CI-CD pipeline PolyWard
 
 on:
   push:
     branches: [ main ]
-    
+
 permissions:
   contents: write
 
@@ -14,15 +14,21 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Validar HTML
-        uses: cygnetdigital/html5validator-action@v1
+      - name: Instalar Node.js
+        uses: actions/setup-node@v4
         with:
-          root: .
+          node-version: '18'
+
+      - name: Instalar validador HTML
+        run: npm install -g html-validate
+
+      - name: Validar HTML
+        run: html-validate "*.html"
 
       - name: Busqueda de links rotos
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: 'index.html'
+          paths: '*.html'
 
   deploy:
     needs: build-and-test
@@ -34,5 +40,5 @@ jobs:
       - name: Deploy GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-dir: ./
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
