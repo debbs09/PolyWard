@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+    --red: #ff3e3e;
+    --yellow: #ffee00;
+    --blue: #00d2ff; 
+    --green: #39ff14;
+    --bg: #05070a;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glow: 0 0 20px rgba(0, 210, 255, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ===== FONDOS ESCÉNICOS ===== */
+.background-master {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 30%, #1a2a40 0%, #05070a 100%);
+    z-index: -3;
+}
+
+.grid-floor {
+    position: absolute;
+    bottom: -20%; left: -50%;
+    width: 200%; height: 100%;
+    background-image: 
+        linear-gradient(var(--blue) 1px, transparent 1px),
+        linear-gradient(90deg, var(--blue) 1px, transparent 1px);
+    background-size: 60px 60px;
+    transform: rotateX(75deg);
+    opacity: 0.1;
+    z-index: -2;
+}
+
+.mountains-bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 55vh;
+    background: linear-gradient(to top, rgba(0, 210, 255, 0.15), transparent);
+    clip-path: polygon(0% 100%, 0% 85%, 10% 65%, 25% 85%, 45% 45%, 65% 80%, 80% 60%, 100% 90%, 100% 100%);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    position: relative;
+    z-index: 100;
+}
+
+.logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; }
+.logo span { color: var(--blue); text-shadow: var(--glow); }
+
+nav { display: flex; gap: 25px; align-items: center; }
+nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px; transition: 0.3s; }
+nav a:hover { color: var(--blue); }
+
+.nav-login {
+    border: 1px solid var(--blue);
+    padding: 6px 18px;
+    border-radius: 20px;
+    background: rgba(0, 210, 255, 0.05);
+}
+
+/* ===== SECCIÓN DE GUARDIANES (CARTAS) ===== */
+.cards-container {
+    padding: 60px 8%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 60px;
+    letter-spacing: 5px;
+}
+h1 span { color: var(--blue); text-shadow: var(--glow); }
+
+.cards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card {
+    flex: 1 1 300px;
+    max-width: 350px;
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px 25px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 4px;
+}
+
+/* Colores dinámicos */
+.card.azul { --card-glow: var(--blue); }
+.card.naranja { --card-glow: var(--red); }
+.card.verde { --card-glow: var(--green); }
+
+.card:hover {
+    transform: translateY(-15px);
+    border-color: var(--card-glow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+/* Estilo de la Figura y Plataforma */
+.shape-wrapper {
+    position: relative;
+    width: 150px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.platform {
+    position: absolute;
+    bottom: 30px;
+    width: 110px;
+    height: 35px;
+    border: 2px solid var(--card-glow);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--card-glow);
+    opacity: 0.5;
+}
+
+.cube, .pyramid, .sphere-poly {
+    background: var(--card-glow);
+    filter: drop-shadow(0 0 15px var(--card-glow));
+    animation: float 4s ease-in-out infinite;
+    z-index: 2;
+}
+
+.cube { width: 50px; height: 50px; }
+.pyramid {
+    width: 0; height: 0;
+    background: transparent;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 60px solid var(--card-glow);
+}
+.sphere-poly { width: 60px; height: 60px; border-radius: 20%; }
+
+.card h3 {
+    margin: 20px 0 15px;
+    letter-spacing: 3px;
+    color: var(--card-glow);
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 20px; }
+    nav { gap: 15px; }
+    .card { flex: 1 1 100%; }
+}

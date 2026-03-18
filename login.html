@@ -2,23 +2,24 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PolyWard | Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="grid-background"></div>
-
-<main class="login-container">
-    <div class="glass-panel login-box">
-        <h2>ACCESO <span>WARRIOR</span></h2>
-        <input type="text" placeholder="Usuario">
-        <input type="password" placeholder="Contraseña">
-        <button type="button" class="btn play">ENTRAR</button>
-        <br><br>
-        <a href="index.html" class="volver">Volver al Inicio</a>
-    </div>
-</main>
-
+    <div class="grid-background"></div>
+    <main class="login-container">
+        <div class="glass-panel login-box">
+            <h2>ACCESO <span>WARRIOR</span></h2>
+            <form>
+                <input type="text" placeholder="Usuario" aria-label="Usuario">
+                <input type="password" placeholder="Contraseña" aria-label="Contraseña">
+                <button type="submit" class="play-btn">ENTRAR</button>
+            </form>
+            <div style="margin-top: 20px;">
+                <a href="index.html" class="volver">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
 </body>
 </html>

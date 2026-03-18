@@ -4,43 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PolyWard | Geometric Universe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="background-master">
-    <div class="stars"></div>
-    <div class="grid-floor"></div>
-
-    <div class="shapes-container">
-        <div class="shape s1 square red"></div>
-        <div class="shape s5 square red"></div>
-        <div class="shape s2 triangle yellow"></div>
-        <div class="shape s6 triangle yellow"></div>
-        <div class="shape s3 circle blue"></div>
-        <div class="shape s7 circle blue"></div>
-        <div class="shape s4 square red"></div>
-        <div class="shape s8 triangle yellow"></div>
+    <div class="background-master">
+        <div class="grid-floor"></div>
+        <div class="mountains-bg"></div>
     </div>
 
-    <div class="center-glow"></div>
-</div>
+    <header>
+        <div class="logo">POLY<span>WARD</span></div>
+        <nav>
+            <a href="sobre.html">SOBRE</a>
+            <a href="descubrir.html">DESCUBRIR</a>
+            <a href="estado.html" class="nav-login">ESTADO</a>
+            <a href="login.html">LOGIN</a>
+        </nav>
+    </header>
 
-<header>
-    <div class="logo">POLY<span>WARD</span></div>
-    <nav>
-        <a href="sobre.html">SOBRE</a>
-        <a href="descubrir.html">DESCUBRIR</a>
-        <a href="login.html" class="nav-login">LOGIN</a>
-    </nav>
-</header>
+    <main class="hero">
+        
+        <div class="shield-container">
+            <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00d2ff; stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0077ff; stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <path d="M100 5L25 45V115C25 175 100 235 100 235C100 235 175 175 175 115V45L100 5Z" 
+                      fill="rgba(0, 210, 255, 0.1)" 
+                      stroke="url(#shieldGrad)" 
+                      stroke-width="5" 
+                      filter="url(#glow)"/>
+                
+                <rect x="70" y="80" width="60" height="60" 
+                      fill="none" 
+                      stroke="white" 
+                      stroke-width="3" 
+                      transform="rotate(45 100 110)" />
+                <path d="M100 70V150M65 110H135" stroke="white" stroke-width="2" opacity="0.5"/>
+            </svg>
+        </div>
 
-<main class="hero">
-    <div class="shield">🛡️</div>
-    <h1>POLY<span>WARD</span></h1>
-    <p>EL COMIENZO DE LA DEFENSA GEOMÉTRICA</p>
-    <button type="button" class="play-btn">JUGAR AHORA</button>
-</main>
+        <h1>POLY<span>WARD</span></h1>
+        <p>EL COMIENZO DE LA DEFENSA GEOMÉTRICA</p>
+
+        <div class="btn-group">
+            <button type="button" class="play-btn" onclick="location.href='#descubrir'">
+                DESCUBRE LA ANOMALÍA
+            </button>
+            <button type="button" class="secondary-btn" onclick="location.href='#trailer'">
+                WATCH TRAILER
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        // Aquí podrías añadir un efecto de sonido al hacer clic en los botones
+        console.log("PolyWard cargado correctamente.");
+    </script>
 
 </body>
 </html>
