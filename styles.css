@@ -107,107 +107,86 @@ nav a {
     opacity: 0.5;
 }
 
-/* --- CONTENIDO --- */
+/* --- CONTENIDO GENERAL --- */
 .content-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    min-height: 80vh;
     text-align: center;
 }
-/* --- RESPONSIVIDAD (CELULARES Y TABLETS) --- */
 
+/* --- ESTILOS DE LA PÁGINA DE LORE --- */
+.lore-page {
+    height: auto !important;
+    padding: 100px 20px 50px 20px;
+}
+
+.lore-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.status-text {
+    color: #ff3e3e;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+
+.lore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.lore-card {
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s, border 0.3s;
+    text-align: left;
+}
+
+.lore-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.main-story {
+    grid-column: 1 / -1;
+}
+
+.char-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* --- RESPONSIVIDAD --- */
 @media (max-width: 768px) {
     header {
-        flex-direction: column; /* Pone el logo arriba y el menú abajo */
+        flex-direction: column;
         padding: 15px;
         gap: 15px;
     }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
     nav {
         gap: 15px;
-        flex-wrap: wrap; /* Si no caben, se bajan a la siguiente línea */
+        flex-wrap: wrap;
         justify-content: center;
     }
-
-    nav a {
-        font-size: 0.75rem; /* Letra un poco más pequeña en móvil */
-    }
-
-    .nav-status {
-        padding: 5px 15px; /* Botón más compacto */
-    }
-
-    h1 {
-        font-size: 1.8rem; /* Título más pequeño para que no se corte */
-        padding: 0 10px;
-    }
-
     .shield-container {
-        width: 150px; /* Escudo más pequeño en móviles */
+        width: 150px;
     }
-}
-
-/* Ajuste para pantallas muy pequeñas */
-@media (max-width: 480px) {
-    nav {
-        gap: 10px;
-    }
-    
-    .grid-floor {
-        height: 30%; /* Menos rejilla para que no sature el fondo */
-    }
-    /* --- RESPONSIVIDAD (CELULARES Y TABLETS) --- */
-
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Pone el logo arriba y el menú abajo */
-        padding: 15px;
-        gap: 15px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-    }
-
-    nav {
-        gap: 15px;
-        flex-wrap: wrap; /* Si no caben, se bajan a la siguiente línea */
-        justify-content: center;
-    }
-
-    nav a {
-        font-size: 0.75rem; /* Letra un poco más pequeña en móvil */
-    }
-
-    .nav-status {
-        padding: 5px 15px; /* Botón más compacto */
-    }
-
-    h1 {
-        font-size: 1.8rem; /* Título más pequeño para que no se corte */
-        padding: 0 10px;
-    }
-
-    .shield-container {
-        width: 150px; /* Escudo más pequeño en móviles */
-    }
-}
-
-/* Ajuste para pantallas muy pequeñas */
-@media (max-width: 480px) {
-    nav {
-        gap: 10px;
-    }
-    
-    .grid-floor {
-        height: 30%; /* Menos rejilla para que no sature el fondo */
-    }
-}
-
 }
