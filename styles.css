@@ -212,8 +212,11 @@ nav a {
 /* --- ESTILOS DE LA PÁGINA DE LORE --- */
 
 .lore-page {
-    height: auto !important; /* Permite que la página crezca con el texto */
+    height: auto !important;
     padding: 100px 20px 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .lore-header h1 {
@@ -222,7 +225,7 @@ nav a {
 }
 
 .status-text {
-    color: #ff3e3e; /* Rojo de alerta */
+    color: #ff3e3e;
     font-size: 0.8rem;
     letter-spacing: 3px;
     margin-bottom: 40px;
@@ -239,6 +242,7 @@ nav a {
     gap: 25px;
     max-width: 1100px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .lore-card {
@@ -257,30 +261,12 @@ nav a {
     box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
 }
 
-.lore-card h2, .lore-card h3 {
-    color: #00d2ff;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
-    display: inline-block;
-}
-
-.lore-card p {
-    line-height: 1.6;
-    color: #e0e0e0;
-    font-size: 0.9rem;
-}
-
 .main-story {
-    grid-column: 1 / -1; /* Ocupa todo el ancho arriba */
+    grid-column: 1 / -1;
 }
 
 .char-icon {
     font-size: 2rem;
     margin-bottom: 15px;
 }
-
-.mission-card {
-    border-color: rgba(255, 255, 255, 0.2);
-}
-}
+}    
