@@ -209,4 +209,47 @@ nav a {
         height: 30%; /* Menos rejilla para que no sature el fondo */
     }
 }
+/* --- EFECTOS DE CURSOR EN EL MENÚ --- */
+
+nav a {
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease; /* Suaviza el cambio de color */
+}
+
+/* El brillo al pasar el ratón */
+nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00d2ff, 0 0 20px #00d2ff;
+    transform: translateY(-2px); /* Pequeño salto hacia arriba */
+}
+
+/* La línea neón que aparece debajo */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%; /* La línea se expande al pasar el cursor */
+}
+
+/* Efecto especial para el botón ESTADO (el redondeado) */
+.nav-status:hover {
+    background: rgba(0, 210, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+    transform: scale(1.05); /* Se agranda un poquito */
+}
+
+/* Quitar la línea de abajo solo para el botón ESTADO porque ya tiene borde */
+.nav-status::after {
+    display: none;
+}
 }
