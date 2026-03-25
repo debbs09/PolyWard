@@ -2,38 +2,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>PolyWard | Descubrir</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyWard | Geometric Universe</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="grid-background"></div>
-
-<header>
-    <div class="logo">Poly<span>Ward</span></div>
-    <nav>
-        <a href="index.html">INICIO</a>
-        <a href="sobre.html">SOBRE</a>
-        <a href="descubrir.html">DESCUBRIR</a>
-        <a href="login.html" class="login-btn">LOGIN</a>
-    </nav>
-</header>
-
-<section class="cards-container">
-    <h1>NUESTROS <span>GUARDIANES</span></h1>
-    <div class="cards-grid">
-        <div class="card cyan">
-            <div class="character-box azul"></div>
-            <h3>CUBO AZUL</h3>
-            <p>Personalidad: Serio y frío.</p>
-        </div>
-        <div class="card orange">
-            <div class="character-box naranja"></div>
-            <h3>PIRÁMIDE</h3>
-            <p>Personalidad: Explosivo.</p>
-        </div>
+    <div class="background-master">
+        <div class="grid-floor"></div>
     </div>
-</section>
+
+    <header>
+        <div class="logo">POLY<span>WARD</span></div>
+        <nav>
+            <a href="index.html">SOBRE</a>
+            <a href="descubrir.html">DESCUBRIR</a>
+            <a href="sobre.html" class="nav-status">ESTADO</a>
+            <a href="login.html">LOGIN</a>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <div class="shield-container">
+            <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" class="stop-blue-light"/>
+                        <stop offset="100%" class="stop-blue-dark"/>
+                    </linearGradient>
+                </defs>
+                <path d="M100 5L25 45V115C25 175 100 235 100 235C100 235 175 175 175 115V45L100 5Z" class="shield-path"/>
+                <rect x="70" y="80" width="60" height="60" class="shield-rect" transform="rotate(45 100 110)"/>
+                <path d="M100 70V150M65 110H135" class="shield-lines"/>
+            </svg>
+        </div>
+        <h1>BIENVENIDO</h1>
+        </main>
 
 </body>
 </html>
