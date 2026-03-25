@@ -3,22 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PolyWard | Login</title>
+    <title>PolyWard | Descubrir</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="grid-background"></div>
-    <main class="login-container">
-        <div class="glass-panel login-box">
-            <h2>ACCESO <span>WARRIOR</span></h2>
-            <form>
-                <input type="text" placeholder="Usuario" aria-label="Usuario">
-                <input type="password" placeholder="Contraseña" aria-label="Contraseña">
-                <button type="submit" class="play-btn">ENTRAR</button>
-            </form>
-            <div style="margin-top: 20px;">
-                <a href="index.html" class="volver">Volver al Inicio</a>
-            </div>
+    <div class="background-master"></div>
+    <div class="grid-floor"></div>
+    <div class="mountains-bg"></div>
+
+    <header>
+        <div class="logo">Poly<span>Ward</span></div>
+        <nav>
+            <a href="index.html">INICIO</a>
+            <a href="sobre.html">NOSOTROS</a>
+            <a href="descubrir.html" style="color: var(--blue);">DESCUBRIR</a>
+            <a href="login.html" class="nav-login">LOGIN</a>
+        </nav>
+    </header>
+
+    <main class="cards-container">
+        <h1>NUESTROS <span>GUARDIANES</span></h1>
+        
+        <div class="cards-grid">
+            <article class="card azul">
+                <div class="shape-wrapper">
+                    <div class="cube"></div>
+                    <div class="platform"></div>
+                </div>
+                <h3>CUBO AZUL</h3>
+                <p>Personalidad: Serio y frío. El pilar táctico que mantiene la calma en el campo de batalla.</p>
+            </article>
+
+            <article class="card naranja">
+                <div class="shape-wrapper">
+                    <div class="pyramid"></div>
+                    <div class="platform"></div>
+                </div>
+                <h3>PIRÁMIDE</h3>
+                <p>Personalidad: Explosivo y audaz. Su ataque geométrico es letal en distancias cortas.</p>
+            </article>
+
+            <article class="card verde">
+                <div class="shape-wrapper">
+                    <div class="sphere-poly"></div>
+                    <div class="platform"></div>
+                </div>
+                <h3>GEOSFERA</h3>
+                <p>Personalidad: Sabio y equilibrado. Controla la gravedad para proteger el núcleo del universo.</p>
+            </article>
         </div>
     </main>
 </body>
