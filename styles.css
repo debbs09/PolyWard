@@ -116,3 +116,50 @@ nav a {
     height: 80vh;
     text-align: center;
 }
+/* --- RESPONSIVIDAD (CELULARES Y TABLETS) --- */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Pone el logo arriba y el menú abajo */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap; /* Si no caben, se bajan a la siguiente línea */
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: 0.75rem; /* Letra un poco más pequeña en móvil */
+    }
+
+    .nav-status {
+        padding: 5px 15px; /* Botón más compacto */
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Título más pequeño para que no se corte */
+        padding: 0 10px;
+    }
+
+    .shield-container {
+        width: 150px; /* Escudo más pequeño en móviles */
+    }
+}
+
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    nav {
+        gap: 10px;
+    }
+    
+    .grid-floor {
+        height: 30%; /* Menos rejilla para que no sature el fondo */
+    }
+}
