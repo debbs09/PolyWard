@@ -209,5 +209,78 @@ nav a {
         height: 30%; /* Menos rejilla para que no sature el fondo */
     }
 }
+/* --- ESTILOS DE LA PÁGINA DE LORE --- */
 
+.lore-page {
+    height: auto !important; /* Permite que la página crezca con el texto */
+    padding: 100px 20px 50px 20px;
+}
+
+.lore-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.status-text {
+    color: #ff3e3e; /* Rojo de alerta */
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+
+.lore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.lore-card {
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s, border 0.3s;
+    text-align: left;
+}
+
+.lore-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.lore-card h2, .lore-card h3 {
+    color: #00d2ff;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+    display: inline-block;
+}
+
+.lore-card p {
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.main-story {
+    grid-column: 1 / -1; /* Ocupa todo el ancho arriba */
+}
+
+.char-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.mission-card {
+    border-color: rgba(255, 255, 255, 0.2);
+}
 }
