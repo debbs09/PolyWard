@@ -10,47 +10,41 @@
 
     <div class="background-master">
         <div class="grid-floor"></div>
-        <div class="mountains-bg"></div>
     </div>
 
     <header>
         <div class="logo">POLY<span>WARD</span></div>
         <nav>
-            <a href="sobre.html">SOBRE</a>
+            <a href="index.html">SOBRE</a>
             <a href="descubrir.html">DESCUBRIR</a>
-            <a href="estado.html" class="nav-status">ESTADO</a>
+            <a href="sobre.html" class="nav-status">ESTADO</a>
             <a href="login.html">LOGIN</a>
         </nav>
     </header>
 
     <main class="content-container">
-        <section class="page-info">
-            <h1>BIENVENIDO A POLYWARD</h1>
-            <p>El universo geométrico te espera.</p>
-        </section>
-    </main>
-
-</body>
-</html>
-
-        <h1>POLY<span>WARD</span></h1>
-        <p>EL COMIENZO DE LA DEFENSA GEOMÉTRICA</p>
-
-        <div class="btn-group">
-            <button type="button" class="play-btn" onclick="location.href='#descubrir'">
-                DESCUBRE LA ANOMALÍA
-            </button>
-            <button type="button" class="secondary-btn" onclick="location.href='#trailer'">
-                WATCH TRAILER
-            </button>
+        <div class="shield-container">
+            <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" class="stop-blue-light"/>
+                        <stop offset="100%" class="stop-blue-dark"/>
+                    </linearGradient>
+                </defs>
+                <path d="M100 5L25 45V115C25 175 100 235 100 235C100 235 175 175 175 115V45L100 5Z" class="shield-path"/>
+                <rect x="70" y="80" width="60" height="60" class="shield-rect" transform="rotate(45 100 110)"/>
+                <path d="M100 70V150M65 110H135" class="shield-lines"/>
+            </svg>
         </div>
-
-    </main>
-
-    <script>
-        // Aquí podrías añadir un efecto de sonido al hacer clic en los botones
-        console.log("PolyWard cargado correctamente.");
-    </script>
+        <h1>BIENVENIDO</h1>
+        </main>
 
 </body>
 </html>
