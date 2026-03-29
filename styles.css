@@ -264,4 +264,51 @@ nav a {
     border-radius: 10px;
     width: 130px;
 }
+/* Contenedor principal en dos columnas */
+.main-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-top: 30px;
+    flex-wrap: wrap; /* Para que en celulares se ponga uno abajo de otro */
+}
+
+.info-panel {
+    flex: 1.5; /* El texto toma un poco más de espacio */
+    min-width: 300px;
+}
+
+.action-panel {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+/* Efecto de caja de cristal para el texto */
+.glass-box {
+    background: rgba(0, 20, 40, 0.6);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #00d2ff;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.qr-style {
+    width: 150px;
+    border: 2px solid #00d2ff;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+}
+
+.btn-download {
+    display: block;
+    margin-top: 10px;
+    color: #ff00ff; /* Color neón */
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 5px #ff00ff;
+}
 }
