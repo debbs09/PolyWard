@@ -277,3 +277,15 @@ nav a:hover, nav a.active {
     align-items: center;
     justify-content: center;
 }
+/* Tamaños de imágenes para evitar errores de estilo inline */
+.img-hero {
+    width: 120px;
+}
+
+.img-tower {
+    width: 90px;
+}
+
+.no-margin {
+    margin-bottom: 0;
+}
