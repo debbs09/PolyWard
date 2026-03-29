@@ -255,4 +255,26 @@ nav a:hover, nav a.active {
     .info-panel, .action-panel {
         width: 100%;
     }
+    /* --- ANIMACIONES DE PERSONAJES --- */
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.char-icon img {
+    display: block;
+    margin: 0 auto 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6)); /* Brillo neón */
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Ajuste para que las cartas no corten la animación al subir */
+.char-icon {
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 }
