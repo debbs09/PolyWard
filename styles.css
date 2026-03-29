@@ -255,6 +255,7 @@ nav a:hover, nav a.active {
     .info-panel, .action-panel {
         width: 100%;
     }
+}
     /* --- ANIMACIONES DE PERSONAJES --- */
 
 @keyframes floating {
