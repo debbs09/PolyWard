@@ -207,4 +207,45 @@ nav a.active {
     .info-panel, .action-panel {
         width: 100%;
     }
+    /* --- REGRESO DE LAS CARTAS (LORE GRID) --- */
+.lore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.lore-card {
+    background: rgba(0, 210, 255, 0.05); /* Fondo sutil azulado */
+    border: 1px solid rgba(0, 210, 255, 0.3); /* Borde neón suave */
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s, border 0.3s;
+    text-align: left;
+}
+
+.lore-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
+
+.lore-card h2, .lore-card h3 {
+    color: #00d2ff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 210, 255, 0.5);
+}
+
+.main-story {
+    grid-column: 1 / -1; /* Hace que la primera carta ocupe todo el ancho */
+}
+
+.char-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: block;
+}
 }
