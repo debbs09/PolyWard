@@ -106,7 +106,7 @@ nav a:hover, nav a.active {
     50% { opacity: 0.3; }
 }
 
-/* --- DISEÑO DE INICIO (DOS COLUMNAS) --- */
+/* --- DISEÑO DE INICIO  --- */
 .main-layout {
     display: flex;
     gap: 40px;
@@ -142,7 +142,7 @@ nav a:hover, nav a.active {
     gap: 20px;
 }
 
-/* --- VIDEO Y ZONA DE DESCARGA --- */
+/* --- VIDEO Y DESCARGA --- */
 .video-placeholder {
     width: 100%;
     background: rgba(0, 210, 255, 0.1);
@@ -194,7 +194,7 @@ nav a:hover, nav a.active {
     transform: scale(1.05);
 }
 
-/* --- TARJETAS DE LORE (PÁGINA DESCUBRIR) --- */
+/* --- TARJETAS DE LORE  --- */
 .lore-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -255,9 +255,9 @@ nav a:hover, nav a.active {
     .info-panel, .action-panel {
         width: 100%;
     }
-}
-    /* --- ANIMACIONES DE PERSONAJES --- */
+} 
 
+/* --- ANIMACIONES  --- */
 @keyframes floating {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-15px); }
@@ -267,15 +267,13 @@ nav a:hover, nav a.active {
 .char-icon img {
     display: block;
     margin: 0 auto 15px;
-    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6)); /* Brillo neón */
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
     animation: floating 3s ease-in-out infinite;
 }
 
-/* Ajuste para que las cartas no corten la animación al subir */
 .char-icon {
     min-height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
 }
