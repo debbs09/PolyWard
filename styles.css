@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
+/* --- RESET Y GENERALES --- */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +15,7 @@ body {
     min-height: 100vh;
 }
 
-/* --- FONDO --- */
+/* --- FONDO ANIMADO Y GRID --- */
 .background-master {
     position: fixed;
     top: 0;
@@ -38,7 +39,7 @@ body {
     transform-origin: bottom;
 }
 
-/* --- HEADER --- */
+/* --- CABECERA (NAV) --- */
 header {
     display: flex;
     justify-content: space-between;
@@ -72,34 +73,52 @@ nav a {
     transition: 0.3s;
 }
 
-nav a.active {
+nav a:hover, nav a.active {
     color: #00d2ff;
     text-shadow: 0 0 10px #00d2ff;
 }
 
-/* --- DISEÑO DE DOS COLUMNAS (MAIN LAYOUT) --- */
+/* --- CONTENEDOR PRINCIPAL --- */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 80vh;
+}
+
+.lore-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.status-text {
+    color: #ff3e3e;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+    text-align: center;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
+
+/* --- DISEÑO DE INICIO (DOS COLUMNAS) --- */
 .main-layout {
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    margin-top: 30px;
     max-width: 1200px;
     width: 100%;
-    padding: 0 20px;
+    margin-top: 20px;
 }
 
 .info-panel {
     flex: 1.5;
     min-width: 300px;
-}
-
-.action-panel {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
 }
 
 .glass-box {
@@ -115,23 +134,32 @@ nav a.active {
     margin-bottom: 15px;
 }
 
-/* --- VIDEO Y QR --- */
+.action-panel {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- VIDEO Y ZONA DE DESCARGA --- */
 .video-placeholder {
     width: 100%;
     background: rgba(0, 210, 255, 0.1);
     border: 2px dashed #00d2ff;
     border-radius: 15px;
     padding: 20px;
-    color: #00d2ff;
+    text-align: center;
 }
 
 .video-box {
     aspect-ratio: 16 / 9;
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.3);
     margin-top: 10px;
+    border-radius: 8px;
 }
 
 .download-zone {
@@ -140,9 +168,9 @@ nav a.active {
     align-items: center;
     gap: 15px;
     background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
+    padding: 25px;
     border-radius: 20px;
-    border: 1px solid rgba(0, 210, 255, 0.3);
+    border: 1px solid rgba(0, 210, 255, 0.2);
 }
 
 .qr-style {
@@ -150,7 +178,7 @@ nav a.active {
     height: 150px;
     border: 4px solid white;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 
 .btn-download {
@@ -159,72 +187,30 @@ nav a.active {
     font-weight: bold;
     text-shadow: 0 0 5px #f0f;
     font-size: 1.1rem;
+    transition: transform 0.2s;
 }
 
-/* --- LORE HEADER --- */
-.content-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
+.btn-download:hover {
+    transform: scale(1.05);
 }
 
-.lore-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.status-text {
-    color: #ff3e3e;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-    text-align: center;
-    animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0.3; }
-}
-
-/* --- RESPONSIVIDAD (SOLO LO QUE CAMBIA EN CELULAR) --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        padding: 15px;
-        gap: 15px;
-    }
-    nav {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .main-layout {
-        flex-direction: column;
-        align-items: center;
-    }
-    .info-panel, .action-panel {
-        width: 100%;
-    }
-    /* --- REGRESO DE LAS CARTAS (LORE GRID) --- */
+/* --- TARJETAS DE LORE (PÁGINA DESCUBRIR) --- */
 .lore-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
     max-width: 1100px;
     width: 100%;
-    margin: 30px auto;
+    margin-top: 20px;
 }
 
 .lore-card {
-    background: rgba(0, 210, 255, 0.05); /* Fondo sutil azulado */
-    border: 1px solid rgba(0, 210, 255, 0.3); /* Borde neón suave */
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid rgba(0, 210, 255, 0.3);
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(5px);
-    transition: transform 0.3s, border 0.3s;
-    text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
 }
 
 .lore-card:hover {
@@ -236,11 +222,6 @@ nav a.active {
 .lore-card h2, .lore-card h3 {
     color: #00d2ff;
     margin-bottom: 10px;
-    text-shadow: 0 0 5px rgba(0, 210, 255, 0.5);
-}
-
-.main-story {
-    grid-column: 1 / -1; /* Hace que la primera carta ocupe todo el ancho */
 }
 
 .char-icon {
@@ -248,4 +229,30 @@ nav a.active {
     margin-bottom: 15px;
     display: block;
 }
+
+.main-story {
+    grid-column: 1 / -1;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .info-panel, .action-panel {
+        width: 100%;
+    }
 }
