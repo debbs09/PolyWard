@@ -443,6 +443,23 @@ nav {
     align-items: center;
     gap: 30px;
 }
+/* Esto mantendrá tu menú siempre visible arriba */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(1, 10, 19, 0.9); /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de cristal para que se vea pro */
+    border-bottom: 2px solid #00d2ff;
+    padding: 10px 0;
+}
+
+/* Añadimos un margen al main para que el header no tape el título */
+.content-container {
+    margin-top: 100px; 
+    padding: 20px;
+}
 
 
 /* RESPONSIVIDAD PARA MÓVILES */
