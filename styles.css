@@ -336,252 +336,86 @@ nav a:hover, nav a.active {
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
 /* ==========================================================================
-   ENCABEZADO (header, logo y menú) - CORREGIDO PARA LOGO MÁS GRANDE
+   HEADER ÚNICO Y CORREGIDO (REEMPLAZA TODOS LOS ANTERIORES)
    ========================================================================== */
-/* --- CABECERA (NAV) ACTUALIZADA --- */
+
 header {
+    /* Fixed es mejor para que NUNCA se pierda al hacer scroll o zoom */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    /* Usamos min-height en lugar de height fijo para que sea flexible con el zoom */
+    min-height: 80px; 
+    
+    /* Fondo sólido neón oscuro */
+    background: rgba(2, 11, 22, 0.98); 
+    backdrop-filter: blur(10px);
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px; /* Reducido un poco para compensar el tamaño del logo */
-    background: rgba(5, 10, 20, 0.9);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 10px 5%;
+    
+    z-index: 10000;
+    border-bottom: 2px solid #00d2ff;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
+/* Ajuste del cuerpo para que no se tape el contenido */
+body {
+    padding-top: 100px; /* Suficiente espacio para que el header no tape "EL ORIGEN" */
+    margin: 0;
+    background-color: #010a13;
+    color: white;
+}
+
+/* Contenedor del Logo */
 .logo-container {
     display: flex;
     align-items: center;
     text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.logo-container:hover {
-    transform: scale(1.05);
 }
 
 .main-logo {
-    /* Ajuste de tamaño para que se vea grande y claro como antes */
-    height: 100px; 
+    height: 70px; /* Tamaño balanceado */
     width: auto;
-    filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.5));
-    display: block;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+    transition: transform 0.3s ease;
 }
 
+/* Menú de Navegación */
 nav {
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
-/* Responsividad para que el logo no tape todo en celulares */
+/* ==========================================================================
+   RESPONSIVIDAD Y ZOOM (MEDIA QUERIES)
+   ========================================================================== */
+
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
+        flex-direction: column; /* Se apila en vertical para que no se salga de la pantalla */
         padding: 15px;
-        gap: 15px;
+        height: auto; /* Permite que crezca si el menú es muy largo */
     }
 
     .main-logo {
-        height: 70px; /* Un poco más pequeño en móviles para que quepa el menú */
+        height: 50px; /* Más pequeño en móviles */
     }
 
     nav {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
+        margin-top: 10px;
     }
-}.video-game {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Hace que el video llene el cuadro sin deformarse */
-    border-radius: 8px; /* Para que las esquinas del video sean redondeadas como el cuadro */
-}
-
-.video-box {
-    overflow: hidden; /* Corta cualquier parte del video que se salga del borde redondeado */
-    background: #000; /* Fondo negro por si el video tarda en cargar */
-}
-/* --- CABECERA (NAV) ESTILIZADA --- */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* Reducimos el padding vertical a solo 5px para que la barra sea delgada */
-    padding: 5px 50px; 
-    background: rgba(5, 10, 20, 0.95);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    /* Añadimos una altura máxima para asegurar que no crezca más de lo debido */
-    height: 100px; 
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    height: 100%; /* Se ajusta al alto del header */
-}
-
-.main-logo {
-    /* Ajustamos el alto del logo para que quepa bien en el header delgado */
-    height: 85px; 
-    width: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
-    transition: transform 0.3s ease;
-}
-
-.logo-container:hover .main-logo {
-    transform: scale(1.05);
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-/* CONTENEDOR DE EQUIPO */
-.team-container {
-    display: flex;
-    flex-wrap: wrap;         /* Permite que las tarjetas bajen a la siguiente fila */
-    justify-content: center;   /* Centra las tarjetas si hay espacio extra */
-    gap: 25px;               /* Espacio uniforme entre ellas */
-    max-width: 800px;        /* AJUSTE CLAVE: Limita el ancho para forzar 2 por fila */
-    margin: 40px auto;       /* Centra todo el bloque en la página */
-    width: 100%;
-}
-
-/* LA TARJETA INDIVIDUAL */
-.character-card {
-    background: rgba(10, 20, 40, 0.85);
-    border: 2px solid #00d2ff;
-    border-radius: 15px;
-    padding: 25px;
-    width: 320px;            /* Ancho fijo para que no parezcan tubos */
-    min-height: 280px;       /* Altura mínima para que todas midan lo mismo */
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     
-    /* Centra el contenido internamente */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.character-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
-    border-color: #fff;
-}
-
-/* ESTILOS DE TEXTO */
-.character-card h3 {
-    color: #00d2ff;
-    font-size: 1.6rem;
-    margin: 10px 0 5px 0;
-    text-transform: uppercase;
-}
-
-.character-card .role {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-.character-card p {
-    color: #cbd5e0;
-    font-size: 0.9rem;
-    line-height: 1.5;
-}
-
-/* RESPONSIVIDAD PARA MÓVILES */
-@media (max-width: 700px) {
-    .character-card {
-        width: 100%;       /* En celulares pequeños ocupan todo el ancho */
-        max-width: 350px;
+    body {
+        padding-top: 140px; /* Más espacio en móvil porque el header crece hacia abajo */
     }
 }
-/* 1. ARREGLO PARA EL MENÚ (HEADER) */
-/* Esto soluciona que el menú se pierda y que el texto se encime */
-header {
-    position: fixed; /* Mantiene el menú siempre visible arriba */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px; 
-    background-color: #020b16; /* Color sólido para que el texto no se transparente */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    z-index: 10000; /* Asegura que el menú esté por encima de todo el contenido */
-    border-bottom: 2px solid #00d2ff; /* Tu línea neón característica */
-    box-sizing: border-box;
-}
-
-/* 2. ESPACIADO DEL CUERPO */
-/* Evita que el menú tape el inicio de tus secciones */
-body {
-    padding-top: 100px; 
-    margin: 0;
-    background-color: #010a13; /* Asegura el fondo oscuro del juego */
-    color: white;
-    font-family: sans-serif;
-}
-
-/* 3. CONTENEDOR DE INFORMACIÓN EXTENDIDA (Sobre.html) */
-/* Para que las tarjetas de "Tipo de Juego" y "Escenarios" ocupen todo el ancho */
-.info-extended-list {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    margin-bottom: 50px;
-    width: 100%;
-}
-
-.main-story-extended {
-    width: 100% !important;
-    display: block;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-/* 4. CUADRÍCULA PARA PERSONAJES Y EQUIPO */
-/* Esto alinea a los 4 miembros del equipo o a los héroes en filas */
-.lore-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 20px 0;
-}
-
-/* 5. ESTILO DE LAS TARJETAS (LORE-CARD) */
-.lore-card {
-    background: rgba(0, 210, 255, 0.05);
-    border: 1px solid #00d2ff;
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.lore-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
-}
-
-/* 6. TÍTULOS DE SECCIÓN */
-.section-title {
-    text-align: center;
-    color: #00d2ff;
-    text-transform: uppercase;
-    margin-top: 40px;
-    letter-spacing: 2px;
-}
-    
