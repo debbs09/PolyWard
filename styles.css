@@ -508,5 +508,80 @@ nav {
         max-width: 350px;
     }
 }
+/* 1. ARREGLO PARA EL MENÚ (HEADER) */
+/* Esto soluciona que el menú se pierda y que el texto se encime */
+header {
+    position: fixed; /* Mantiene el menú siempre visible arriba */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    background-color: #020b16; /* Color sólido para que el texto no se transparente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    z-index: 10000; /* Asegura que el menú esté por encima de todo el contenido */
+    border-bottom: 2px solid #00d2ff; /* Tu línea neón característica */
+    box-sizing: border-box;
+}
 
+/* 2. ESPACIADO DEL CUERPO */
+/* Evita que el menú tape el inicio de tus secciones */
+body {
+    padding-top: 100px; 
+    margin: 0;
+    background-color: #010a13; /* Asegura el fondo oscuro del juego */
+    color: white;
+    font-family: sans-serif;
+}
+
+/* 3. CONTENEDOR DE INFORMACIÓN EXTENDIDA (Sobre.html) */
+/* Para que las tarjetas de "Tipo de Juego" y "Escenarios" ocupen todo el ancho */
+.info-extended-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.main-story-extended {
+    width: 100% !important;
+    display: block;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* 4. CUADRÍCULA PARA PERSONAJES Y EQUIPO */
+/* Esto alinea a los 4 miembros del equipo o a los héroes en filas */
+.lore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* 5. ESTILO DE LAS TARJETAS (LORE-CARD) */
+.lore-card {
+    background: rgba(0, 210, 255, 0.05);
+    border: 1px solid #00d2ff;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lore-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+}
+
+/* 6. TÍTULOS DE SECCIÓN */
+.section-title {
+    text-align: center;
+    color: #00d2ff;
+    text-transform: uppercase;
+    margin-top: 40px;
+    letter-spacing: 2px;
+}
     
