@@ -335,3 +335,56 @@ nav a:hover, nav a.active {
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
 }
+/* ==========================================================================
+   ENCABEZADO (header, logo y menú) - CORREGIDO PARA LOGO MÁS GRANDE
+   ========================================================================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centra verticalmente logo y menú */
+    padding: 15px 50px; /* Un poco de padding arriba/abajo */
+    background: rgba(5, 10, 20, 0.95); /* Fondo casi opaco */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* Centra la imagen dentro de su enlace */
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.03); /* Un hover suave al crecer */
+}
+
+.main-logo {
+    /* --- AJUSTE DE TAMAÑO --- */
+    height: 110px; /* ANTES ESTABA EN ~60PX, AHORA 110PX */
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5)); /* Brillo sutil */
+    display: block; /* Evita espacios extra abajo */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-right: 20px; /* Un pequeño ajuste a la derecha */
+}
+
+nav a {
+    text-decoration: none;
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    line-height: 1; /* Para ayudar al centrado vertical */
+}
+
+nav a:hover, nav a.active {
+    color: #00d2ff;
+    text-shadow: 0 0 10px #00d2ff;
+}
