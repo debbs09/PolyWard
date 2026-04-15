@@ -634,30 +634,70 @@ nav a:hover, nav a.active {
     text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
 }
 
-/* --- RESPONSIVIDAD (PC a Móvil) --- */
-
-/* Para pantallas muy grandes (Ultra Wide) */
-@media (min-width: 1400px) {
-    header {
-        padding: 10px 10%; /* Más margen a los lados */
-    }
+/* --- ESTILOS SOLO PARA DESKTOP --- */
+header {
+    position: fixed; /* O sticky, según prefieras */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(2, 11, 22, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid #00d2ff;
+    z-index: 10000;
+    display: flex;
+    justify-content: center; /* Centra el contenido interno */
+    padding: 0 20px;
+    height: 90px;
+    box-sizing: border-box;
 }
 
-/* Para Tablet y Móvil */
-@media (max-width: 850px) {
-    header {
-        flex-direction: column; /* Se apila para que no se amontone */
-        padding: 15px;
-        gap: 10px;
-    }
+/* Este contenedor evita que el menú se desparrame en pantallas anchas */
+.header-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Ancho máximo estándar de PC */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
 
-    nav {
-        gap: 15px;
-        flex-wrap: wrap; /* Si no caben los botones, bajan a la siguiente línea */
-        justify-content: center;
-    }
-    
-    .main-logo {
-        height: 50px;
-    }
+.main-logo {
+    height: 65px;
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5));
+    transition: transform 0.3s ease;
+}
+
+nav {
+    display: flex;
+    gap: 40px; /* Espacio generoso entre links para PC */
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Efecto neón al pasar el mouse */
+nav a:hover, nav a.active {
+    color: #00d2ff;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.8);
+}
+
+/* Línea decorativa debajo del link activo */
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #00d2ff;
+    box-shadow: 0 0 10px #00d2ff;
 }
