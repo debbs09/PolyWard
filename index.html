@@ -40,13 +40,16 @@
                 </div>
             </article>
 
-            <aside class="action-panel">
-                <div class="video-placeholder">
-                    <h3>TRÁILER DE DESPLIEGUE</h3>
-                    <div class="video-box">
-                        <span class="placeholder-text">[ ESPACIO PARA EL VÍDEO DEL JUEGO ]</span>
-                    </div>
-                </div>
+           <aside class="action-panel">
+    <div class="video-placeholder">
+        <h3>TRÁILER DE DESPLIEGUE</h3>
+        <div class="video-box">
+            <video muted loop playsinline id="trailer-video" class="video-game">
+    <source src="video/trailer.mp4" type="video/mp4">
+    Tu navegador no soporta videos.
+</video>
+        </div>
+    </div>
 
                 <div class="download-zone">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=PolyWard" alt="QR Code PolyWard" class="qr-style">
@@ -65,3 +68,13 @@
     </footer>
 </body>
 </html>
+<script>
+    window.addEventListener('load', function() {
+        const video = document.getElementById('trailer-video');
+        if (video) {
+            video.play().catch(error => {
+                console.log("La reproducción automática fue bloqueada por el navegador, pero el HTML es válido.");
+            });
+        }
+    });
+</script>
