@@ -220,4 +220,15 @@ nav a:hover, nav a.active {
     align-items: center;
     justify-content: center;
     margin-bottom: 15px;
+}/* Esto hará que tus héroes tengan el aura neón de PolyWard */
+.img-hero {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
+    animation: floating 3s ease-in-out infinite;
+}
+
+/* Evita que el texto se pegue a la imagen */
+.character-card .char-icon {
+    margin-bottom: 20px;
 }
