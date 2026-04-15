@@ -456,62 +456,61 @@ nav {
         height: 60px;
     }
 }
-/* CONTENEDOR DE TARJETAS */
+/* CONTENEDOR PRINCIPAL */
 .team-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que bajen a la siguiente fila */
-    justify-content: center; /* Las centra en la pantalla */
-    gap: 30px; /* Espacio entre las cartas */
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-wrap: wrap;       /* Permite que bajen a la siguiente fila */
+    justify-content: center; /* Centra las cartas en la pantalla */
+    gap: 20px;            /* Espacio entre cartas */
+    max-width: 800px;     /* Ajustamos el ancho para que solo quepan 2 */
+    margin: 40px auto;    /* Centra todo el bloque */
 }
 
-/* LA CARTA (ESTILO MEJORADO) */
+/* LA CARTA INDIVIDUAL */
 .character-card {
     background: rgba(10, 20, 40, 0.8);
     border: 2px solid #00d2ff;
     border-radius: 15px;
-    padding: 25px;
-    width: 350px; /* ANCHO FIJO PARA QUE NO SE VEAN LARGAS */
+    padding: 20px;
+    
+    /* EL SECRETO: Un ancho fijo para que no se estiren */
+    width: 320px; 
+    min-height: 250px;
+    
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
+    
+    /* Asegura que los elementos internos no se amontonen */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .character-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px rgba(0, 210, 255, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.5);
     border-color: #fff;
 }
 
-/* ICONO Y TEXTOS */
-.char-icon {
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
+/* TEXTOS DENTRO DE LA CARTA */
 .character-card h3 {
     color: #00d2ff;
-    font-size: 1.8rem;
-    margin-bottom: 5px;
+    font-size: 1.5rem;
+    margin: 10px 0;
     text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 .character-card .role {
     color: #ffffff;
     font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    display: block;
-    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    margin-bottom: 10px;
 }
 
 .character-card p {
     color: #cbd5e0;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 /* Responsividad: En celulares se ponen de a una */
