@@ -404,3 +404,55 @@ nav {
     overflow: hidden; /* Corta cualquier parte del video que se salga del borde redondeado */
     background: #000; /* Fondo negro por si el video tarda en cargar */
 }
+/* --- CABECERA (NAV) ESTILIZADA --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Reducimos el padding vertical a solo 5px para que la barra sea delgada */
+    padding: 5px 50px; 
+    background: rgba(5, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* Añadimos una altura máxima para asegurar que no crezca más de lo debido */
+    height: 100px; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Se ajusta al alto del header */
+}
+
+.main-logo {
+    /* Ajustamos el alto del logo para que quepa bien en el header delgado */
+    height: 85px; 
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover .main-logo {
+    transform: scale(1.05);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Ajuste para móviles: que no se vea gigante en pantallas chicas */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto; /* En móvil dejamos que crezca según el contenido */
+        padding: 10px;
+    }
+
+    .main-logo {
+        height: 60px;
+    }
+}
