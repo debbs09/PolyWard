@@ -459,6 +459,17 @@ header {
 .content-container {
     margin-top: 100px; 
     padding: 20px;
+}.info-extended-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.main-story-extended {
+    width: 100%;
+    min-height: auto; /* Permite que crezca según el texto */
+    padding: 30px;
 }
 
 
