@@ -444,26 +444,7 @@ nav {
     gap: 30px;
 }
 
-/* Contenedor para que las tarjetas de información ocupen todo el ancho */
-.info-extended-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 40px;
-    width: 100%;
-}
 
-.info-extended-container .main-story {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: none;
-}
-
-/* Mantiene a los miembros del equipo en cuadrícula */
-.lore-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
 /* RESPONSIVIDAD PARA MÓVILES */
 @media (max-width: 700px) {
     .character-card {
