@@ -39,37 +39,36 @@ body {
     transform-origin: bottom;
 }
 
-/* --- CABECERA (NAV) - UNIFICADA --- */
+/* --- CABECERA (NAV) --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 50px; 
-    background: rgba(5, 10, 20, 0.95);
+    padding: 10px 50px; /* Reducido un poco para que el logo no sea gigante */
+    background: rgba(5, 10, 20, 0.8);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 100;
-    height: 100px; 
 }
 
+/* Estilo para el contenedor del logo (enlace) */
 .logo-container {
     display: flex;
     align-items: center;
-    height: 100%;
     text-decoration: none;
-}
-
-.main-logo {
-    height: 85px; 
-    width: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
     transition: transform 0.3s ease;
-    display: block;
 }
 
-.logo-container:hover .main-logo {
+.logo-container:hover {
     transform: scale(1.05);
+}
+
+/* Estilo para la imagen del logo */
+.main-logo {
+    height: 60px; /* Tamaño ideal para el header */
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.4));
 }
 
 nav {
@@ -90,7 +89,7 @@ nav a:hover, nav a.active {
     text-shadow: 0 0 10px #00d2ff;
 }
 
-/* --- CONTENEDOR PRINCIPAL Y LORE --- */
+/* --- CONTENEDOR PRINCIPAL --- */
 .content-container {
     display: flex;
     flex-direction: column;
@@ -114,8 +113,99 @@ nav a:hover, nav a.active {
     animation: blink 1.5s infinite;
 }
 
-@keyframes blink { 50% { opacity: 0.3; } }
+@keyframes blink {
+    50% { opacity: 0.3; }
+}
 
+/* --- DISEÑO DE INICIO --- */
+.main-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.info-panel {
+    flex: 1.5;
+    min-width: 300px;
+}
+
+.glass-box {
+    background: rgba(0, 20, 40, 0.6);
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 4px solid #00d2ff;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.glass-box p {
+    margin-bottom: 15px;
+}
+
+.action-panel {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* --- VIDEO Y DESCARGA --- */
+.video-placeholder {
+    width: 100%;
+    background: rgba(0, 210, 255, 0.1);
+    border: 2px dashed #00d2ff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.video-box {
+    aspect-ratio: 16 / 9;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    border-radius: 8px;
+}
+
+.download-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.qr-style {
+    width: 150px;
+    height: 150px;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+
+.btn-download {
+    color: #f0f;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 5px #f0f;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.btn-download:hover {
+    transform: scale(1.05);
+}
+
+/* --- TARJETAS DE LORE --- */
 .lore-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -134,29 +224,250 @@ nav a:hover, nav a.active {
     transition: transform 0.3s, border-color 0.3s;
 }
 
-.main-story { grid-column: 1 / -1; }
+.lore-card:hover {
+    transform: translateY(-10px);
+    border-color: #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+}
 
-/* --- CONTENEDOR DE EQUIPO (TUS CARTITAS) --- */
+.lore-card h2, .lore-card h3 {
+    color: #00d2ff;
+    margin-bottom: 10px;
+}
+
+.char-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.main-story {
+    grid-column: 1 / -1;
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .main-logo {
+        height: 50px; /* Logo un poco más pequeño en móviles */
+    }
+
+    nav {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .info-panel, .action-panel {
+        width: 100%;
+    }
+} 
+
+/* --- ANIMACIONES --- */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+.char-icon img {
+    display: block;
+    margin: 0 auto 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 210, 255, 0.6));
+    animation: floating 3s ease-in-out infinite;
+}
+
+.char-icon {
+    min-height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tamaños de imágenes generales */
+.img-hero {
+    width: 120px;
+}
+
+.img-tower {
+    width: 90px;
+}
+
+.no-margin {
+    margin-bottom: 0;
+}
+.highlight-text {
+    color: #00d2ff;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+.placeholder-text {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.scan-text {
+    font-size: 0.7rem;
+    color: #cbd5e0;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.8rem;
+}
+
+.qr-style {
+    width: 150px;
+    height: 150px;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+}
+/* ==========================================================================
+   ENCABEZADO (header, logo y menú) - CORREGIDO PARA LOGO MÁS GRANDE
+   ========================================================================== */
+/* --- CABECERA (NAV) ACTUALIZADA --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px; /* Reducido un poco para compensar el tamaño del logo */
+    background: rgba(5, 10, 20, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.main-logo {
+    /* Ajuste de tamaño para que se vea grande y claro como antes */
+    height: 100px; 
+    width: auto;
+    filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.5));
+    display: block;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Responsividad para que el logo no tape todo en celulares */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .main-logo {
+        height: 70px; /* Un poco más pequeño en móviles para que quepa el menú */
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}.video-game {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que el video llene el cuadro sin deformarse */
+    border-radius: 8px; /* Para que las esquinas del video sean redondeadas como el cuadro */
+}
+
+.video-box {
+    overflow: hidden; /* Corta cualquier parte del video que se salga del borde redondeado */
+    background: #000; /* Fondo negro por si el video tarda en cargar */
+}
+/* --- CABECERA (NAV) ESTILIZADA --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Reducimos el padding vertical a solo 5px para que la barra sea delgada */
+    padding: 5px 50px; 
+    background: rgba(5, 10, 20, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    /* Añadimos una altura máxima para asegurar que no crezca más de lo debido */
+    height: 100px; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Se ajusta al alto del header */
+}
+
+.main-logo {
+    /* Ajustamos el alto del logo para que quepa bien en el header delgado */
+    height: 85px; 
+    width: auto;
+    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.logo-container:hover .main-logo {
+    transform: scale(1.05);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* CONTENEDOR DE EQUIPO */
 .team-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-    max-width: 800px;
-    margin: 40px auto;
+    flex-wrap: wrap;         /* Permite que las tarjetas bajen a la siguiente fila */
+    justify-content: center;   /* Centra las tarjetas si hay espacio extra */
+    gap: 25px;               /* Espacio uniforme entre ellas */
+    max-width: 800px;        /* AJUSTE CLAVE: Limita el ancho para forzar 2 por fila */
+    margin: 40px auto;       /* Centra todo el bloque en la página */
     width: 100%;
 }
 
+/* LA TARJETA INDIVIDUAL */
 .character-card {
     background: rgba(10, 20, 40, 0.85);
     border: 2px solid #00d2ff;
     border-radius: 15px;
     padding: 25px;
-    width: 320px;
-    min-height: 280px;
+    width: 320px;            /* Ancho fijo para que no parezcan tubos */
+    min-height: 280px;       /* Altura mínima para que todas midan lo mismo */
     text-align: center;
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Centra el contenido internamente */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -168,67 +479,33 @@ nav a:hover, nav a.active {
     border-color: #fff;
 }
 
-.character-card h3 { color: #00d2ff; font-size: 1.6rem; margin: 10px 0; text-transform: uppercase; }
-.character-card .role { color: #ffffff; font-weight: bold; margin-bottom: 15px; text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }
-
-/* --- VIDEO --- */
-.video-box {
-    aspect-ratio: 16 / 9;
-    background: #000;
-    overflow: hidden;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ESTILOS DE TEXTO */
+.character-card h3 {
+    color: #00d2ff;
+    font-size: 1.6rem;
+    margin: 10px 0 5px 0;
+    text-transform: uppercase;
 }
 
-.video-game {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.character-card .role {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* --- RESPONSIVIDAD --- */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        height: auto;
-        padding: 15px;
-        gap: 15px;
-    }
+.character-card p {
+    color: #cbd5e0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
 
-    .main-logo { height: 70px; }
-
-    nav { gap: 15px; flex-wrap: wrap; justify-content: center; }
-
+/* RESPONSIVIDAD PARA MÓVILES */
+@media (max-width: 700px) {
     .character-card {
-        width: 100%;
+        width: 100%;       /* En celulares pequeños ocupan todo el ancho */
         max-width: 350px;
     }
-}/* Ajuste para que las imágenes de los héroes no se vean gigantes */
-.img-hero {
-    width: 120px; /* Tamaño que ya tenías definido */
-    height: auto;
-    filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.7)); /* Brillo neón */
-    animation: floating 3s ease-in-out infinite; /* La animación que ya tienes en tu CSS */
 }
-
-/* Asegura que el contenedor de la imagen no las corte */
-.char-icon {
-    min-height: 150px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}/* Esto hará que tus héroes tengan el aura neón de PolyWard */
-.img-hero {
-    width: 120px;
-    height: auto;
-    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.6));
-    animation: floating 3s ease-in-out infinite;
-}
-
-/* Evita que el texto se pegue a la imagen */
-.character-card .char-icon {
-    margin-bottom: 20px;
-}
+    
